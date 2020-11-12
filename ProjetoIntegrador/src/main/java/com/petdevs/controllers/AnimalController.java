@@ -38,7 +38,7 @@ public class AnimalController {
 	}
  	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<Animal> buscarPorNomeUsuario(@PathVariable String nome){
+	public ResponseEntity<Animal> buscarPorNomeAnimal(@PathVariable String nome){
 		
 		return repository.findByNomeAnimal(nome).map(usuario -> ResponseEntity.ok(usuario))
 				.orElse(ResponseEntity.notFound().build());

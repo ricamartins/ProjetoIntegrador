@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -25,15 +26,15 @@ public class Usuario {
 	private long id;
 	
 	@Column
-	@NotNull
+	@NotEmpty
 	private String nomeCompleto;
 	
 	@Column 
-	@NotNull
+	@NotEmpty
 	private String emailUsuario;
 	
 	@Column
-	@NotNull
+	@NotEmpty
 	private String senhaUsuario;
 
 	@Column
@@ -44,7 +45,6 @@ public class Usuario {
 	@NotNull
 	private double avaliacaoUsuario;
 	
-	
 	@Column
 	@NotNull
 	private String telefoneUsuario;
@@ -53,15 +53,9 @@ public class Usuario {
 	@JsonIgnoreProperties("usuario")
 	private List<Postagem> listaPostagens;
 	
-	
-
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	@JsonIgnoreProperties("usuario")
 	private List<Animal> listaAnimais;
-	
-	
-	
-	
 	
 	public long getId() {
 		return id;
