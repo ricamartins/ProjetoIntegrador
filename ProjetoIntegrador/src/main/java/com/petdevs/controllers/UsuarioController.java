@@ -1,8 +1,10 @@
 package com.petdevs.controllers;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.petdevs.models.Usuario;
+import com.petdevs.models.UsuarioLogin;
 import com.petdevs.repositories.UsuarioRepository;
+import com.petdevs.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
@@ -23,6 +27,22 @@ public class UsuarioController {
 	
 	@Autowired
 	private UsuarioRepository repository;
+	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@PostMapping("/logar")
+	public ResponseEntity<UsuarioLogin> autenticar(@RequestBody Optional<UsuarioLogin> usuario){
+		return usuarioService.logar(usuario)
+				.map(resp -> ResponseEntity.ok(resp))
+				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
+	}
+	
+	@PostMapping("/cadastrar")
+	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario){
+		return ResponseEntity.status(HttpStatus.CREATED)
+				.body(usuarioService.cadastrar(usuario));
+	}
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> buscarTodos(){
