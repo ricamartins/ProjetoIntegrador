@@ -19,7 +19,12 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
+	
 	public Usuario cadastrar(Usuario usuario) {
+	
+	if(usuarioRepository.findByEmailUsuario(usuario.getEmailUsuario()).isPresent())
+			return null;
+		
 	  BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
 	  String senhaEncoder = encoder.encode(usuario.getSenhaUsuario());	
 	  usuario.setSenhaUsuario(senhaEncoder);
