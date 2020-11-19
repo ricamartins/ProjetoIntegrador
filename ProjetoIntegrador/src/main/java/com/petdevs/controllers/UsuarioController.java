@@ -38,11 +38,18 @@ public class UsuarioController {
 				.orElse(ResponseEntity.status(HttpStatus.UNAUTHORIZED).build());
 	}
 	
+	
 	@PostMapping("/cadastrar")
-	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario){
-		return ResponseEntity.status(HttpStatus.CREATED)
-				.body(usuarioService.cadastrar(usuario));
+	public ResponseEntity<Usuario> cadastrar(@RequestBody Usuario usuario) {
+		Usuario usuarioCadastrado = usuarioService.cadastrar(usuario);
+		if(usuarioCadastrado == null) {
+			return ResponseEntity.badRequest().build();
+		}else {
+			return ResponseEntity.status(HttpStatus.CREATED).body(usuarioCadastrado);
+		}
+		
 	}
+	
 	
 	@GetMapping
 	public ResponseEntity<List<Usuario>> buscarTodos(){
@@ -76,6 +83,7 @@ public class UsuarioController {
 		
 		return ResponseEntity.ok(repository.save(usuario));
 	}
+	
 	
 	@DeleteMapping("/id/{id}")
 	public void deletarUsuario(@PathVariable long id) {

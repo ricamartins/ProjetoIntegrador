@@ -13,6 +13,8 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>ProjetoIntegrador</name>
 	<description>Projeto integrador do curso da Generation Brasil</description>
+    
+    <packaging>jar</packaging>
 
 	<properties>
 		<java.version>1.8</java.version>
