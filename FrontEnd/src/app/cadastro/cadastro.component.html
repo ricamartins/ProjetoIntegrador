@@ -1,5 +1,7 @@
 <div class="d-flex justify-content-center">
-    <div class="d-flex flex-column w-25">
+    <div class="d-flex justify-content-between flex-column w-25">
+
+        <div>
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
@@ -19,6 +21,17 @@
             <label for="confirmacao">Confirmação de senha</label>
             <input type="password" class="form-control" id="confirmacao"[(ngModel)]='usuario.senha'>
         </div>
+    </div>
+
+        <div>
+            <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png" onerror="event.target.style.display = 'none'" alt="image" id="img-preview">
+            <label for="file-upload" class="file-upload-container" class="btn btn-primary">
+            <input class="d-none" type="file" name="file" id="file-upload" title=''>
+            Selecione uma imagem 
+        </label>
+        </div>
+        
+
         <button type="submit" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
     </div>
 </div>
