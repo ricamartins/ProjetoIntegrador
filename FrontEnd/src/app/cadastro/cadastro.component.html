@@ -5,12 +5,12 @@
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
-                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nome'> 
+                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nomeCompleto'> 
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                placeholder="Exemplo@email.com"[(ngModel)]='usuario.usuario'>
+                placeholder="Exemplo@email.com"[(ngModel)]='usuario.emailUsuario'>
             <small id="emailHelp" class="form-text text-muted">Você está em um ambiente seguro.</small>
         </div>
         <div class="form-group">
@@ -19,7 +19,7 @@
         </div>
         <div class="form-group">
             <label for="confirmacao">Confirmação de senha</label>
-            <input type="password" class="form-control" id="confirmacao"[(ngModel)]='usuario.senha'>
+            <input type="password" class="form-control" id="confirmacao"[(ngModel)]='usuario.senhaUsuario'>
         </div>
     </div>
 
