@@ -28,7 +28,7 @@
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
                 placeholder="Exemplo@email.com" [(ngModel)]='usuario.emailUsuario'>
-            <small id="emailHelp" class="form-text text-muted"></small>
+            
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
@@ -42,7 +42,7 @@
             <label for="telefone">Telefone:</label>
             <input type="text" class="form-control" id="telefone" [(ngModel)]='usuario.telefoneUsuario'>
         </div>
-        <div class="d-flex justify-content-center " >
+        <div  >
           <button type="submit" class="btn btn-primary btn-lg " (click)="cadastrar()">Cadastrar</button>
         </div>
     </div>
