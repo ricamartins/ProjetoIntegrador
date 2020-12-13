@@ -18,6 +18,13 @@
 
 .banner{
     position: absolute;
-    top: 80%;
-    left: 45%;
+    top: 60%;
+    left: 42%;
+}
+
+.btnestilo{
+
+    width: 250px;
+    height: 250px;
+
 }

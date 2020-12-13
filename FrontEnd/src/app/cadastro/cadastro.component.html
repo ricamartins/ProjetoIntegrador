@@ -38,15 +38,15 @@
             <label for="confirmacao">Confirmação de senha</label>
             <input type="password" class="form-control" id="confirmacao" [(ngModel)]='usuario.senhaUsuario'>
         </div>
-
-    <div class="d-flex justify-content-center " >
-        <button type="submit" class="btn btn-primary btn-lg " (click)="cadastrar()">Cadastrar</button>
+        <div class="form-group">
+            <label for="telefone">Telefone:</label>
+            <input type="text" class="form-control" id="telefone" [(ngModel)]='usuario.telefoneUsuario'>
+        </div>
+        <div class="d-flex justify-content-center " >
+          <button type="submit" class="btn btn-primary btn-lg " (click)="cadastrar()">Cadastrar</button>
+        </div>
     </div>
 
-        
-    </div>
-
-    
     <img class="img-fluid max-width=100%" src="assets/imgs/sombraMulher.png" alt="">
 
 </div>
