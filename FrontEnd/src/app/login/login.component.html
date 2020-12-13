@@ -1,9 +1,14 @@
-<div class="d-flex justify-content-center">
-    <div class="d-flex flex-column w-25">
+<div class="d-flex justify-content-center align-items-center body">
+
+    <img class="img-fluid max-width=100%" src="assets/imgs/casa.png" alt="">
+
+
+    <div class="d-flex flex-column w-25 p-5">
+        <h1>Entrar na conta </h1>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                placeholder="Exemplo@email.com"[(ngModel)]="usuarioLogin.usuario">
+                placeholder="Exemplo@email.com"[(ngModel)]="usuarioLogin.email">
             <small id="emailHelp" class="form-text text-muted"> Você está em um ambiente seguro</small>
         </div>
         <div class="form-group">
@@ -12,5 +17,7 @@
 
         </div>
         <button type="submit" class="btn btn-primary"(click)="logar()">Login</button>
+        <p>Não tem conta? <a href="">Crie uma!</a></p> 
+        
     </div>
 </div>
