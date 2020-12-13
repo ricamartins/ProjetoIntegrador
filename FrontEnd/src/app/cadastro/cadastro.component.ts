@@ -19,6 +19,7 @@ export class CadastroComponent implements OnInit {
     this.senha = event.target.value
   }
   cadastrar() {
+    console.log(this.usuario)
     if (this.senha === this.usuario.senhaUsuario) {
       this.auth.cadastrar(this.usuario).subscribe((resp: Usuario) => {
         this.usuario = resp
