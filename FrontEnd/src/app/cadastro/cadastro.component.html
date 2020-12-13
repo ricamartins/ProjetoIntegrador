@@ -1,37 +1,52 @@
-<div class="d-flex justify-content-center">
-    <div class="d-flex justify-content-between flex-column w-25">
+<div class="d-flex justify-content-center p-2 flex-wrap body align-items-center">
 
-        <div>
+
+    <div class="p-5">
+
+        <img class="img-fluid img-thumbnail" width="300px" 
+            src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
+            onerror="event.target.style.display = 'none'" alt="image" id="img-preview">
+
+
+        <div class="p-2 d-flex justify-content-center" >
+            <label for="file-upload" class="file-upload-container" class="btn btn-outline-dark branco">
+                <input class="d-none" type="file" name="file" id="file-upload" title=''>
+                Selecione uma imagem
+            </label>
+        </div>
+
+    </div>
+
+    <div class="p-5" >
+        <h1>Cadastre-se</h1>
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
-                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nomeCompleto'> 
+                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nomeCompleto'>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
             <input type="email" class="form-control" id="email" aria-describedby="emailHelp"
-                placeholder="Exemplo@email.com"[(ngModel)]='usuario.emailUsuario'>
-            <small id="emailHelp" class="form-text text-muted">Você está em um ambiente seguro.</small>
+                placeholder="Exemplo@email.com" [(ngModel)]='usuario.emailUsuario'>
+            <small id="emailHelp" class="form-text text-muted"></small>
         </div>
         <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="password" class="form-control" id="senha"(input)="capturarSenha($event)">
+            <input type="password" class="form-control" id="senha" (input)="capturarSenha($event)">
         </div>
         <div class="form-group">
             <label for="confirmacao">Confirmação de senha</label>
-            <input type="password" class="form-control" id="confirmacao"[(ngModel)]='usuario.senhaUsuario'>
+            <input type="password" class="form-control" id="confirmacao" [(ngModel)]='usuario.senhaUsuario'>
         </div>
+
+    <div class="d-flex justify-content-center " >
+        <button type="submit" class="btn btn-primary btn-lg " (click)="cadastrar()">Cadastrar</button>
     </div>
 
-        <div>
-            <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png" onerror="event.target.style.display = 'none'" alt="image" id="img-preview">
-            <label for="file-upload" class="file-upload-container" class="btn btn-primary">
-            <input class="d-none" type="file" name="file" id="file-upload" title=''>
-            Selecione uma imagem 
-        </label>
-        </div>
         
-
-        <button type="submit" class="btn btn-primary" (click)="cadastrar()">Cadastrar</button>
     </div>
+
+    
+    <img class="img-fluid max-width=100%" src="assets/imgs/sombraMulher.png" alt="">
+
 </div>
