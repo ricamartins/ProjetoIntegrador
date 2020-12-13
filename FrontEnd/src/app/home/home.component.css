@@ -1,0 +1,29 @@
+.carousel-caption {
+    bottom: 10px
+}
+.carousel-caption p, h5 {
+    margin-bottom: 0;
+}
+
+.body {
+    /* background-color: hsl(35, 42%, 76%) !important; */
+    background-color: hsl(33, 100%, 93%);
+}
+
+#aside {
+    border: 1px solid black;
+    background-color: #F7C331;
+}
+
+#main {
+    border: 1px solid black;
+    background-color: #F7C331;
+}
+
+.btn-blueberry {
+    background-color: hsl(215, 14%, 69%);
+}
+
+.btn-blueberry:hover {
+    background-color: hsl(215, 14%, 49%);
+}
