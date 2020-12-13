@@ -1,0 +1,23 @@
+.branco{
+    background-color:white;
+}
+
+.btn-outline-dark:hover{
+    background-color: rgb(107,124,142);
+}
+
+.btn-outline-dark{
+    border-color: rgb(107,124,142);
+}
+
+.btn-primary{
+    background-color: rgb(250,194,49);
+} 
+
+.btn-primary:active{
+   background-color: rgb(247,138,47) !important;
+} 
+.body{
+    background-color: rgb(255, 239, 219);
+   
+}
