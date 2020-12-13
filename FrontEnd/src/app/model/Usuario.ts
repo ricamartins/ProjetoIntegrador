@@ -7,5 +7,5 @@ export class Usuario{
 	public senhaUsuario!: string
 	public fotoUsuario: string = 'https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png'
 	public avaliacaoUsuario: number = 5
-	public telefoneUsuario: string = '000-000'
+	public telefoneUsuario!: string
 }
