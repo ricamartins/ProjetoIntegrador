@@ -1,0 +1,191 @@
+<div class="body w-100">
+    <div class="container">
+        <div class="row d-flex justify-content-between py-4" style="height: 95vh;">
+            <div id="aside" class="col-4  rounded">
+
+                <nav class="d-flex justify-content-center">
+                    <div class="nav nav-tabs flex-nowrap" id="nav-tab" role="tablist">
+                        <a href="#minhas-postagens" class="nav-item nav-link active text-secondary font-weight-bold"
+                            id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home"
+                            aria-selected="true">Adoções</a>
+                        <a href="#postagens-temas" class="nav-item nav-link text-secondary font-weight-bold"
+                            id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Chat</a>
+                        <a href="#perfil-temas" class="nav-item nav-link text-secondary font-weight-bold"
+                            id="nav-perfil-tab" data-toggle="tab" role="tab" aria-controls="nav-profile"
+                            aria-selected="false">Meu perfil</a>
+                    </div>
+                </nav>
+
+                <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel"
+                        aria-labelledby="nav-postagens-tab">
+                        <div class="row my-2">
+                            <div class="col-md-12 d-flex flex-wrap">
+
+                                <!-- *ngFor="let item of postagens | orderBy : key : reverse" -->
+                                <div class="card mx-2 my-2" style="width: 45%;">
+                                    <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
+                                    <div class="card-body py-1 px-2">
+                                        <h5 class="card-title mb-1">Cãozinho</h5>
+                                        <p class="card-text">Tam: P </p>
+                                    </div>
+                                </div>
+
+                                <div class="card mx-2 my-2" style="width: 45%;">
+                                    <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
+                                    <div class="card-body py-1 px-2">
+                                        <h5 class="card-title mb-1">Cãozinho</h5>
+                                        <p class="card-text">Tam: P </p>
+                                    </div>
+                                </div>
+
+                                <div class="card mx-2 my-2" style="width: 45%;">
+                                    <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
+                                    <div class="card-body py-1 px-2">
+                                        <h5 class="card-title mb-1">Cãozinho</h5>
+                                        <p class="card-text">Tam: P </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
+                        <div class="row my-2">
+
+                            <div class="card" style="max-width: 540px; height: 12.5vh;">
+                                <div class="row h-100 g-0">
+                                    <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
+                                        <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
+                                            alt="Foto usuario" width="64" height="64" class="rounded-circle">
+                                    </div>
+                                    <div class="col-md-9 pl-1">
+                                        <div class="card-body h-100 p-0 d-flex flex-column justify-content-between">
+                                            <h5 class="card-title mb-0">Fulaninho</h5>
+                                            <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">This
+                                                is a
+                                                wider card with supporting text below as a
+                                                natural lead-in to additional content. This content is a little bit
+                                                longer.
+                                            </p>
+                                            <p class="card-text"><small class="text-muted">Última mensagem: 3 mins
+                                                    atrás</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="card" style="max-width: 540px; height: 12.5vh;">
+                                <div class="row h-100 g-0">
+                                    <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
+                                        <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
+                                            alt="Foto usuario" width="64" height="64" class="rounded-circle">
+                                    </div>
+                                    <div class="col-md-9 pl-1">
+                                        <div class="card-body h-100 p-0 flex-column d-flex justify-content-between">
+                                            <h5 class="card-title mb-0">Beltrana</h5>
+                                            <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">This
+                                                is a
+                                                wider card with supporting text below as a
+                                                natural lead-in to additional content. This content is a little bit
+                                                longer.
+                                            </p>
+                                            <p class="card-text"><small class="text-muted">Última mensagem: 3 mins
+                                                    atrás</small>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="perfil-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
+                        <div class="row my-2 p-2">
+                            <div class="col-4">
+                                <img [src]="usuario.fotoUsuario"
+                                    width="128" height="128">
+                                    <p>{{usuario.nomeCompleto}}</p>
+                                    <p>{{usuario.emailUsuario}}</p>
+                                    <p>{{usuario.telefoneUsuario}}</p>
+                            
+                            </div>
+                            <div class="col-8">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
+
+                <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner h-100">
+                        <div class="carousel-item active h-100">
+                            <img class="d-block w-100 rounded" style="object-fit: cover;"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
+                                alt="Foto do animal">
+                            <div class="carousel-caption p-0 d-none d-md-block">
+                                <h5>Gatinho</h5>
+                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img class="d-block w-100 rounded" style="object-fit: cover;"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
+                                alt="Foto do animal">
+                            <div class="carousel-caption p-0 d-none d-md-block">
+                                <h5>Gatinho</h5>
+                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img class="d-block w-100 rounded" style="object-fit: cover;"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
+                                alt="Foto do animal">
+                            <div class="carousel-caption p-0 d-none d-md-block">
+                                <h5>Gatinho</h5>
+                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item h-100">
+                            <img class="d-block w-100 rounded" style="object-fit: cover;"
+                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
+                                alt="Foto do animal">
+                            <div class="carousel-caption p-0 d-none d-md-block">
+                                <h5>Gatinho</h5>
+                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="carousel-prev" class="carousel-control-prev d-none" href="#carousel-animais" role="button"
+                        data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a id="carousel-next" class="carousel-control-next d-none" href="#carousel-animais" role="button"
+                        data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <div class="row w-100 d-flex justify-content-between">
+                    <button class="btn rounded-circle btn-blueberry" (click)="promover()">
+                        <img class="rounded-circle" width="64" height="64" src="/assets/imgs/pata-vermelha-transparente.png"
+                            alt="Pata vermelha">
+                    </button>
+                    <button class="btn rounded-circle btn-blueberry">
+                        <img class="rounded-circle" width="64" height="64" src="/assets/imgs/pata-verde-transparente.png"
+                            alt="Pata verde">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
