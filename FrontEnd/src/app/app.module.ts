@@ -11,6 +11,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoginComponent } from './login/login.component';
 import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
+import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
 
 @NgModule({
@@ -22,6 +23,7 @@ import { HomeComponent } from './home/home.component';
     IndexComponent,
     LoginComponent,
     CadastroComponent,
+    FaleConoscoComponent,
     HomeComponent
   ],
   imports: [

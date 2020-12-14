@@ -1,3 +1,4 @@
+import { Usuario } from './../model/Usuario';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  Usuario: Usuario = new Usuario();
+  
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  promover() {
+    let button: HTMLAnchorElement = document.querySelector("#carousel-next") as HTMLAnchorElement
+    button.click()
   }
 
 }
