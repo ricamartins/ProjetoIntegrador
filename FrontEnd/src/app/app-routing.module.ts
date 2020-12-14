@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: "", component: IndexComponent},
   {path: "login", component: LoginComponent},
   {path: "cadastro", component: CadastroComponent},
-  {path: "sobre-nos", component: SobreNosComponent},
+  {path: "sobre", component: SobreNosComponent},
   {path: "contato", component: FaleConoscoComponent},
   {path: "home", component: HomeComponent}
 ];
