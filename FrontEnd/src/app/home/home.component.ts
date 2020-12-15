@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  usuario: Usuario = new Usuario();
+  Usuario: Usuario = new Usuario();
   
   constructor() { }
 
