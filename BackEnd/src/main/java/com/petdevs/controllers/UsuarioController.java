@@ -70,7 +70,7 @@ public class UsuarioController {
 	@GetMapping("/nome/{nome}")
 	public ResponseEntity<Usuario> buscarPorNome(@PathVariable String nome){
 		
-		return repository.findByNomeCompleto(nome).map(usuario -> ResponseEntity.ok(usuario))
+		return repository.findByNomeUsuario(nome).map(usuario -> ResponseEntity.ok(usuario))
 				.orElse(ResponseEntity.notFound().build());
 	}
 	

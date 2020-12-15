@@ -13,10 +13,12 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="tb_animais")
+@JsonIgnoreProperties("usuario")
 public class Animal {
 	
 	@Id
@@ -40,11 +42,10 @@ public class Animal {
 	private int idadeAnimal;
 	
 	@OneToOne(mappedBy = "animal")
-	@JsonIgnoreProperties("animal")
+	@JsonBackReference
 	private Postagem postagem;
-		
+	
 	@ManyToOne
-	@JsonIgnoreProperties("listaAnimais")
 	private Usuario usuario;
 	
 	public long getId() {

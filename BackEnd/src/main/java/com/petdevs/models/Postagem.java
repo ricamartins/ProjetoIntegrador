@@ -18,10 +18,13 @@ import javax.validation.constraints.NotEmpty;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
 @Table(name="tb_postagens")
+@JsonIgnoreProperties("tema")
 public class Postagem {
 	
 	@Id
@@ -46,7 +49,7 @@ public class Postagem {
 	private String midia;
 	
 	@ManyToOne
-	@JsonIgnoreProperties("listaPostagens")
+	@JsonBackReference
 	private Tema tema;
 	
 	@ManyToOne
@@ -55,7 +58,7 @@ public class Postagem {
 
 	@OneToOne(cascade = {CascadeType.MERGE,CascadeType.REFRESH})
 	@JoinColumn(name = "animal_id", referencedColumnName = "id")
-	@JsonIgnoreProperties("postagem")
+	@JsonManagedReference
 	private Animal animal;
 
 	public long getId() {
