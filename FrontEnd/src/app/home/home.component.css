@@ -11,19 +11,20 @@
 }
 
 #aside {
-    border: 1px solid black;
-    background-color: #F7C331;
+    border: 2px solid white;
+    background-color: #dbdaea;
 }
 
 #main {
-    border: 1px solid black;
-    background-color: #F7C331;
+    border: 2px solid white;
+    background-color: #fedc97;
 }
 
 .btn-blueberry {
-    background-color: hsl(215, 14%, 69%);
+    background-color: #dbfcff;
 }
 
 .btn-blueberry:hover {
     background-color: hsl(215, 14%, 49%);
 }
+

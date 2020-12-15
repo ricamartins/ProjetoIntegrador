@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import com.petdevs.services.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class UsuarioController {
 
 	
@@ -69,6 +71,13 @@ public class UsuarioController {
 	public ResponseEntity<Usuario> buscarPorNome(@PathVariable String nome){
 		
 		return repository.findByNomeCompleto(nome).map(usuario -> ResponseEntity.ok(usuario))
+				.orElse(ResponseEntity.notFound().build());
+	}
+	
+	@GetMapping("/email/{email}")
+	public ResponseEntity<Usuario> buscarPorEmail(@PathVariable String email){
+		
+		return repository.findByEmailUsuario(email).map(usuario -> ResponseEntity.ok(usuario))
 				.orElse(ResponseEntity.notFound().build());
 	}
 
