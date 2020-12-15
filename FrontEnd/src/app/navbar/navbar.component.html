@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-light ">
+<nav class="navbar navbar-expand-lg navbar-dark bg-light">
     <a class="navbar-brand" href="#">MatchPet</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -6,10 +6,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link" routerLink ='/sobre'>Sobre nós<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="#comoFunciona">Como Funciona</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="">Como Funciona</a>
+                <a class="nav-link" routerLink ='/sobre'>Sobre nós<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" routerLink='/contato'>Fale conosco</a>
@@ -17,6 +17,13 @@
             <li class="nav-item">
             </li>
         </ul>
-        <a class="btn btn-outline-light " routerLink='/login'>Login</a>
+        <div *ngIf='auth.btnLogin()'>
+            <a class="btn btn-outline-light" routerLink='/login'>Login</a>
+        </div>
+           <div *ngIf='auth.btnSair()'>
+            <a class="btn btn-outline-light" (click)='sair()'>Sair</a>
+           </div>
+             
+
     </div>
 </nav>
