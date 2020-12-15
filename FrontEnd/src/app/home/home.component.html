@@ -7,7 +7,7 @@
                     <div class="nav nav-tabs flex-nowrap" id="nav-tab" role="tablist">
                         <a href="#minhas-postagens" class="nav-item nav-link active text-secondary font-weight-bold"
                             id="nav-home-tab" data-toggle="tab" role="tab" aria-controls="nav-home"
-                            aria-selected="true">Adoções</a>
+                            aria-selected="true">Animais</a>
                         <a href="#postagens-temas" class="nav-item nav-link text-secondary font-weight-bold"
                             id="nav-profile-tab" data-toggle="tab" role="tab" aria-controls="nav-profile"
                             aria-selected="false">Chat</a>
@@ -47,9 +47,9 @@
                                         <p class="card-text">Tam: P </p>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
+                        <button type="button" class="btn btn-dark"> + Add Pet</button>
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -112,16 +112,21 @@
                                     <p>{{usuario.nomeCompleto}}</p>
                                     <p>{{usuario.emailUsuario}}</p>
                                     <p>{{usuario.telefoneUsuario}}</p>
-                            
+                                    <button type="button" class="btn btn-outline-dark branco ">Alterar imagem</button>
                             </div>
-                            <div class="col-8">
+                            <div class="col-8 ">
 
+                                <p>{{Usuario.nomeCompleto}}</p>
+                                <p>{{Usuario.emailUsuario}}</p>
+                                <p>{{Usuario.telefoneUsuario}}</p>
                             </div>
                         </div>
+                        <button type="button" class="btn btn-dark">Editar Dados</button>
+
                     </div>
                 </div>
             </div>
-            
+
             <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
 
                 <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
@@ -175,16 +180,23 @@
                     </a>
                 </div>
 
-                <div class="row w-100 d-flex justify-content-between">
-                    <button class="btn rounded-circle btn-blueberry" (click)="promover()">
-                        <img class="rounded-circle" width="64" height="64" src="/assets/imgs/pata-vermelha-transparente.png"
+                <div class="row w-100 d-flex justify-content-around">
+                
+                    <button class="btn rounded-circle btn-blueberry teste" (click)="promover()">
+                        <img class="rounded-circle" width="120" height="120" src="/assets/imgs/testePataVermelha.png"
                             alt="Pata vermelha">
                     </button>
-                    <button class="btn rounded-circle btn-blueberry">
-                        <img class="rounded-circle" width="64" height="64" src="/assets/imgs/pata-verde-transparente.png"
+
+                        <button class="btn rounded-circle btn-blueberry teste" >
+                        <img class="rounded-circle " width="120px" height="120px" src="/assets/imgs/testePataVerde.png"
                             alt="Pata verde">
                     </button>
+                    
+
+
+                    
                 </div>
+
             </div>
         </div>
     </div>

@@ -11,13 +11,13 @@
 }
 
 #aside {
-    border: 2px solid white;
     background-color: #dbdaea;
+    border: 3px inset #b6b4d0;
 }
 
 #main {
-    border: 2px solid white;
     background-color: #fedc97;
+    box-shadow: 10px 10px 10px 5px #deb664;
 }
 
 .btn-blueberry {
@@ -25,6 +25,33 @@
 }
 
 .btn-blueberry:hover {
-    background-color: hsl(215, 14%, 49%);
+    background-color: #cbecef;
+}
+
+.btn-dark{
+    background-color: #3c4562;
+}
+
+.btn-light:hover{
+    background-color: #3c4562;
+}
+
+.btn-light:active{
+    background-color: black !important;
+}
+
+.btn-outline-dark{
+    background-color:white;
+}
+
+.btn-outline-dark:hover{
+    background-color: #3c4562;
+}
+
+.teste{
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
 }
 
