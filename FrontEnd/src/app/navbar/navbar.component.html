@@ -18,12 +18,10 @@
             </li>
         </ul>
         <div *ngIf='auth.btnLogin()'>
-            <a class="btn btn-outline-light" routerLink='/login'>Login</a>
+            <a class="btn btn-outline-light " routerLink='/login'>Login</a>
         </div>
-           <div *ngIf='auth.btnSair()'>
-            <a class="btn btn-outline-light" (click)='sair()'>Sair</a>
-           </div>
-             
-
+        <div *ngIf='auth.btnSair()'>
+            <a class="btn btn-outline-light " (click)='sair()'>Sair</a>
+        </div>
     </div>
 </nav>
