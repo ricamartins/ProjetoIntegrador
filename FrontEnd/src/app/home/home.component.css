@@ -11,19 +11,46 @@
 }
 
 #aside {
-    border: 1px solid black;
-    background-color: #F7C331;
+    background-color: #dbdaea;
+    border: 3px inset #b6b4d0;
 }
 
 #main {
-    border: 1px solid black;
-    background-color: #F7C331;
+    background-color: #fedc97;
+    box-shadow: 10px 10px 10px 5px #deb664;
 }
 
 .btn-blueberry {
-    background-color: hsl(215, 14%, 69%);
+    background-color: #dbfcff;
 }
 
 .btn-blueberry:hover {
-    background-color: hsl(215, 14%, 49%);
+    background-color: #cbecef;
+}
+
+.btn-dark{
+    background-color: #3c4562;
+}
+
+.btn-light:hover{
+    background-color: #3c4562;
+}
+
+.btn-light:active{
+    background-color: black !important;
+}
+
+.btn-outline-dark{
+    background-color:white;
+}
+
+.btn-outline-dark:hover{
+    background-color: #3c4562;
+}
+
+.teste{
+    width: 120px;
+    height: 120px;
+    margin: 0;
+    padding: 0;
 }
