@@ -30,7 +30,7 @@ public class Usuario {
 	@Column 
 	@NotEmpty
 	private String emailUsuario;
-	
+	 
 	@Column
 	@NotEmpty
 	private String senhaUsuario;

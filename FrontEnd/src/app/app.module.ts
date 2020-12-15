@@ -13,6 +13,7 @@ import { CadastroComponent } from './cadastro/cadastro.component';
 import { FormsModule } from '@angular/forms';
 import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
+import { PublicarComponent } from './publicar/publicar.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { HomeComponent } from './home/home.component';
     LoginComponent,
     CadastroComponent,
     FaleConoscoComponent,
-    HomeComponent
+    HomeComponent,
+    PublicarComponent
   ],
   imports: [
     BrowserModule,

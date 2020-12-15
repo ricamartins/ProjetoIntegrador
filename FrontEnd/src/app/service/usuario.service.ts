@@ -13,11 +13,11 @@ export class UsuarioService {
   }
   constructor(private http: HttpClient) {}
 
-  getUsuarioById(id: number): Observable<Usuario>{
+  getUsuarioById(id: number): Observable<Usuario> {
     return this.http.get<Usuario>(`http://localhost:8080/usuario/id/${id}`,this.token);
   }
 
-  getUsuarioByEmail(email: string): Observable<Usuario>{
-    return this.http.get<Usuario>(`http://localhost:8080/usuario/id/${email}`,this.token);
+  getUsuarioByEmail(email: string): Observable<Usuario> {
+    return this.http.get<Usuario>(`http://localhost:8080/usuario/email/${email}`,this.token);
   }
 }
