@@ -49,7 +49,7 @@
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-dark" routerLink="/publicar"> + Add Pet</button>
+                        <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add Pet</button>
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -125,7 +125,18 @@
             <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
                 <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner h-100">
-                        <div class="carousel-item active h-100">
+                        <div *ngFor="let postagem of postagens">
+                            <div class="carousel-item active h-100">
+                                <img class="d-block w-100 rounded" style="object-fit: cover;"
+                                    src="{{postagem.midia}}"
+                                    alt="Foto do animal">
+                                <div class="carousel-caption p-0 d-none d-md-block">
+                                    <h5>{{postagem.animal.nomeAnimal}}</h5>
+                                    <p>Tamanho: {{postagem.animal.tamanhoAnimal}} | {{postagem.descricao}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="carousel-item h-100">
                             <img class="d-block w-100 rounded" style="object-fit: cover;"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
                                 alt="Foto do animal">
@@ -151,16 +162,7 @@
                                 <h5>Gatinho</h5>
                                 <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                             </div>
-                        </div>
-                        <div class="carousel-item h-100">
-                            <img class="d-block w-100 rounded" style="object-fit: cover;"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
-                                alt="Foto do animal">
-                            <div class="carousel-caption p-0 d-none d-md-block">
-                                <h5>Gatinho</h5>
-                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
+                        </div> -->
                     </div>
                     <a id="carousel-prev" class="carousel-control-prev d-none" href="#carousel-animais" role="button"
                         data-slide="prev">

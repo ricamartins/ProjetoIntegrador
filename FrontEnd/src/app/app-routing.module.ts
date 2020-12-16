@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: "sobre", component: SobreNosComponent},
   {path: "contato", component: FaleConoscoComponent},
   {path: "home", component: HomeComponent},
-  {path: "publicar", component: PublicarComponent}
+  {path: "publicar/:id", component: PublicarComponent}
 ];
 
 @NgModule({

@@ -25,12 +25,8 @@ export class LoginComponent implements OnInit {
     this.auth.logar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin = resp
       localStorage.setItem('token', this.usuarioLogin.token)
-      this.usuarioService.getUsuarioByEmail(this.usuarioLogin.email).subscribe((resp : Usuario) => {
-        this.usuario= resp 
-        localStorage.setItem('user_id', this.usuario.id.toString())
-        this.router.navigate(['/home'])
-      })
-      
+      localStorage.setItem('user_email', this.usuarioLogin.email)
+      this.router.navigate(['/home'])
     })
   }
 }
