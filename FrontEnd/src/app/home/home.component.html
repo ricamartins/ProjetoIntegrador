@@ -28,7 +28,15 @@
                                     <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
                                     <div class="card-body py-1 px-2">
                                         <h5 class="card-title mb-1">Cãozinho</h5>
-                                        <p class="card-text">Tam: P </p>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <p class="card-text">Tam: P </p>
+                                            </div>
+                                            <div class="col-md-3 btn">
+                                               
+                                                <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -36,7 +44,15 @@
                                     <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
                                     <div class="card-body py-1 px-2">
                                         <h5 class="card-title mb-1">Cãozinho</h5>
-                                        <p class="card-text">Tam: P </p>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <p class="card-text">Tam: P </p>
+                                            </div>
+                                            <div class="col-md-3 btn">
+                                               
+                                                <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
@@ -44,18 +60,28 @@
                                     <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
                                     <div class="card-body py-1 px-2">
                                         <h5 class="card-title mb-1">Cãozinho</h5>
-                                        <p class="card-text">Tam: P </p>
+                                        <div class="row">
+                                            <div class="col-md-9">
+                                                <p class="card-text">Tam: P </p>
+                                            </div>
+                                            <div class="col-md-3 btn">
+                                               
+                                                <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
+                                            </div>
+                                        </div>
+                                       
+                                      
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-dark" routerLink="/publicar"> + Add Pet</button>
+                        <button type="button" class="btn btn-dark" routerLink="/publicar">Publicar</button>
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
                         <div class="row my-2">
 
-                            <div class="card" style="max-width: 540px; height: 12.5vh;">
+                            <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="hover">
                                 <div class="row h-100 g-0">
                                     <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
                                         <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
@@ -64,7 +90,7 @@
                                     <div class="col-md-9 pl-1">
                                         <div class="card-body h-100 p-0 d-flex flex-column justify-content-between">
                                             <h5 class="card-title mb-0">Fulaninho</h5>
-                                            <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">This
+                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; " >This
                                                 is a
                                                 wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
@@ -78,7 +104,7 @@
                                 </div>
                             </div>
 
-                            <div class="card" style="max-width: 540px; height: 12.5vh;">
+                            <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="hover">
                                 <div class="row h-100 g-0">
                                     <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
                                         <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
@@ -107,15 +133,69 @@
                     <div class="tab-pane fade" id="perfil-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
                         <div class="row my-2 p-2">
                             <div class="col">
-                                <img [src]="usuario.fotoUsuario"
-                                    width="128" height="128">
+                                <img [src]="usuario.fotoUsuario" width="128" height="128">
                                 <p>{{usuario.nomeUsuario}}</p>
                                 <p>{{usuario.emailUsuario}}</p>
                                 <p>{{usuario.telefoneUsuario}}</p>
                                 <button type="button" class="btn btn-outline-dark branco ">Alterar imagem</button>
+                                <button type="button" class="btn btn-outline-dark branco ">Salvar</button>
+
+                                <h4 style="color: rgb(207, 120, 134);">Preferências:</h4>
+
+                                <h6 style="color: black;">Tipo:</h6>
+                                <div class="row">
+                                    <select name="preferencia1" id="preferencia1" class="mb-1">
+                                        <option value="semPreferencia">Sem preferência</option>
+                                        <option value="Cachorro">Cachorros</option>
+                                        <option value="Gato">Gatos</option>
+                                        <option value="Aves">Aves</option>
+                                        <option value="Peixes">Peixes</option>
+                                        <option value="Outros">Outros</option>
+                                    </select>
+                                </div>
+                                <h6 style="color: black;" >Tamanho:</h6>
+                                <div class="row">
+                                    <select name="preferencia2" id="preferencia2" class="mb-1">
+                                        <option value="semPreferencia">Sem preferência</option>
+                                        <option value="pp">PP</option>
+                                        <option value="p">P</option>
+                                        <option value="m">M</option>
+                                        <option value="g">G</option>
+                                    </select>
+                                </div>
+                                <h6 style="color: black;" >Idade:</h6>
+                                <div class="row">
+                                    <select name="preferencia3" id="preferencia3" class="mb-1">
+                                        <option value="semPreferencia">Sem preferência</option>
+                                        <option value="1mes">1 mês</option>
+                                        <option value="2meses">2 meses</option>
+                                        <option value="3meses">3 meses</option>
+                                        <option value="4meses">4 meses</option>
+                                        <option value="5meses">5 meses</option>
+                                        <option value="6meses">6 meses</option>
+                                        <option value="1ano">1 ano</option>
+                                        <option value="2anos">2 anos</option>
+                                        <option value="3anos">3 anos</option>
+                                        <option value="4anos">4 anos</option>
+                                        <option value="5anos">5 anos</option>
+                                        <option value="6anos">6 anos</option>
+                                        <option value="7anos">7 anos</option>
+                                        <option value="8anos">8 anos</option>
+                                        <option value="9anos">9 anos</option>
+                                        <option value="10anos">10 anos ou +</option>
+                                    </select>
+                                </div>
+                                <h6 style="color: black;" >Sexo:</h6>
+                                <div class="row">
+                                    <select name="preferencia4" id="preferencia4" class="mb-1">
+                                        <option value="semPreferencia">Sem preferência</option>
+                                        <option value="1mes">Masculino</option>
+                                        <option value="2meses">Feminino</option>
+                                    </select>
+                                </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-dark">Editar Dados</button>
+                        <!-- <button type="button" class="btn btn-dark">Editar Dados</button> -->
 
                     </div>
                 </div>
