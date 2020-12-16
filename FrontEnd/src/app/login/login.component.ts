@@ -17,17 +17,19 @@ export class LoginComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router, private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
+    window.scroll(0, 0)
   }
+  
   logar() {
-    console.log(this.usuarioLogin)
+    
     this.auth.logar(this.usuarioLogin).subscribe((resp: UsuarioLogin) => {
       this.usuarioLogin = resp
       localStorage.setItem('token', this.usuarioLogin.token)
-      this.usuarioService.getUsuarioByEmail(this.usuarioLogin.email).subscribe((resp : Usuario)=> {
+      this.usuarioService.getUsuarioByEmail(this.usuarioLogin.email).subscribe((resp : Usuario) => {
         this.usuario= resp 
         localStorage.setItem('user_id', this.usuario.id.toString())
+        this.router.navigate(['/home'])
       })
-      this.router.navigate(['/home'])
       
     })
   }

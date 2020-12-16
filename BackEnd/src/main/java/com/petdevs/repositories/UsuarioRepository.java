@@ -8,7 +8,7 @@ import com.petdevs.models.Usuario;
 
 public interface UsuarioRepository extends JpaRepository<Usuario, Long> {
 
-	Optional<Usuario> findByNomeCompleto(String nome);
+	Optional<Usuario> findByNomeUsuario(String nome);
 
 	Optional<Usuario> findByEmailUsuario(String email);
 
