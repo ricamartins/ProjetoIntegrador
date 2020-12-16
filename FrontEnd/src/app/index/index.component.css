@@ -2,7 +2,7 @@
     background-image: url('/assets/imgs/ParallaxCaoGato.jpg');
 
     min-height: 100vh;
-
+   
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -20,6 +20,7 @@
     position: absolute;
     top: 56%;
     left: 42%;
+   
 }
 
 .btnestilo{
@@ -28,3 +29,31 @@
     height: 250px;
 
 }
+
+.centralizar{
+    position: relative;
+    left: 133%;
+    max-width: 100%;
+    
+      
+  }
+
+  .centralizar2{
+    position: relative;
+    left: 300%;
+    max-width: 100%;
+    font-size: 25px;
+  }
+
+  .centralizar3{
+    position: relative;
+    left: 450%;
+    max-width: 100%;
+    font-size: 25px;
+  }
+
+  .imgcadastro{
+      width: 250px;
+      height: 150px;
+
+  }
