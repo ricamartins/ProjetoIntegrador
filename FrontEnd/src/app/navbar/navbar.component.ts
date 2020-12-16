@@ -20,7 +20,7 @@ export class NavbarComponent implements OnInit {
 
 
   sair(){
-    this.router.navigate([''])
+    this.router.navigate(['/'])
     localStorage.clear()
   }
 }
