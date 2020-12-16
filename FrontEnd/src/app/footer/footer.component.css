@@ -10,7 +10,7 @@ ul.social-network li {
     padding: 5px;
 }
   
-.faFacebook, .faLinkedin, .faInstagram{
+.faFacebook, .faInstagram{
     color: white;
 }
   
@@ -18,9 +18,6 @@ ul.social-network li {
     color: #1c2c5d;
 }
   
-.faLinkedin:hover{
-    color: #0072b1;
-}
   
 .faInstagram:hover{
     color: #C13584;
