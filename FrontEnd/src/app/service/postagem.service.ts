@@ -19,6 +19,14 @@ export class PostagemService {
     return this.http.post<Animal>("http://localhost:8080/animal", animal, this.token)
   }
 
+  editarAnimal(animal: Animal): Observable<Animal> {
+    return this.http.put<Animal>("http://localhost:8080/animal", animal, this.token)
+  }
+  
+  deleteAnimal(id: number) {
+    return this.http.delete(`http://localhost:8080/id/${id}`, this.token)
+  }
+
   publicarPostagem(postagem: Postagem): Observable<Postagem> {
     return this.http.post<Postagem>("http://localhost:8080/postagem", postagem, this.token)
   }
@@ -26,4 +34,17 @@ export class PostagemService {
   getAllPostagens(): Observable<Postagem[]> {
     return this.http.get<Postagem[]>("http://localhost:8080/postagem", this.token)
   }
+
+  getPostagemById(id: number): Observable<Postagem> {
+    return this.http.get<Postagem>(`http://localhost:8080/postagem/id/${id}`, this.token)
+  }
+
+  editarPostagem(postagem: Postagem) {
+    return this.http.put<Postagem>(`http://localhost:8080/postagem`, postagem, this.token)
+  }
+
+  deletePostagem(id: number) {
+    return this.http.delete(`http://localhost:8080/postagem/id/${id}`, this.token)
+  }
+
 }

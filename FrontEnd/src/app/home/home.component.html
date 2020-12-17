@@ -24,23 +24,58 @@
                             <div class="col-md-12 d-flex flex-wrap">
 
                                 <!-- *ngFor="let item of postagens | orderBy : key : reverse" -->
-                                <div class="card mx-2 my-2" style="width: 45%;">
-                                    <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
-                                    <div class="card-body py-1 px-2">
-                                        <h5 class="card-title mb-1">Cãozinho</h5>
-                                        <div class="row">
-                                            <div class="col-md-9">
-                                                <p class="card-text">Tam: P </p>
-                                            </div>
-                                            <div class="col-md-3 btn">
-                                               
-                                                <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
+                                <div *ngFor="let postagem of postagens">
+                                    <div class="card mx-2 my-2" style="width: 45%;">
+                                        <img class="card-img-top cPointer" src="{{postagem.midia}}" alt="Foto do animal" [routerLink]="['/editar-post', postagem.id]">
+                                        <div class="card-body d-flex flex-column justify-content-around py-1 px-2">
+                                            <h5 class="card-title mb-1">{{postagem.animal.nomeAnimal}}</h5>
+                                            <div class="row">
+                                                <div class="col-md-9 d-flex align-items-center">
+                                                    <p class="card-text">Tam: {{postagem.animal.tamanhoAnimal}} | Idade:
+                                                        {{postagem.animal.idadeAnimal}}</p>
+                                                </div>
+                                                <div class="col-md-3 p-0">
+                                                    <button type="button" class="btn p-0" data-toggle="modal"
+                                                        data-target="#avisoApagar">
+                                                        <img src="/assets/imgs/lixeira.png" alt="Excluir"
+                                                        class="btnExcluir">
+                                                    </button>
+                                                </div>
+
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="avisoApagar" tabindex="-1"
+                                                    role="dialog" aria-labelledby="avisoApagarTitle"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title" id="avisoApagarTitle">
+                                                                    Deseja apagar esta publicação?</h5>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                Esta ação não pode ser revertida
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-dismiss="modal">Fechar</button>
+                                                                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="apagarPostagem($event)">
+                                                                    Apagar
+                                                                </button>
+                                                                <p class="d-none">{{postagem.id}},{{postagem.animal.id}}</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="card mx-2 my-2" style="width: 45%;">
+                                <!-- <div class="card mx-2 my-2" style="width: 45%;">
                                     <img class="card-img-top" src="/assets/imgs/caozinho.jpeg" alt="Foto do animal">
                                     <div class="card-body py-1 px-2">
                                         <h5 class="card-title mb-1">Cãozinho</h5>
@@ -72,10 +107,11 @@
                                        
                                       
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
-                        <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add Pet</button>
+                        <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add
+                            Pet</button>
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -90,7 +126,8 @@
                                     <div class="col-md-9 pl-1">
                                         <div class="card-body h-100 p-0 d-flex flex-column justify-content-between">
                                             <h5 class="card-title mb-0">Fulaninho</h5>
-                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; " >This
+                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; ">
+                                                This
                                                 is a
                                                 wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
@@ -133,12 +170,19 @@
                     <div class="tab-pane fade" id="perfil-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
                         <div class="row my-2 p-2">
                             <div class="col">
-                                <img [src]="usuario.fotoUsuario" width="128" height="128">
+                                <!-- <img [src]="usuario.fotoUsuario" width="128" height="128"> -->
+                                <img class="img-fluid img-thumbnail" width="128" height="128" 
+                                    [src]="usuario.fotoUsuario"
+                                     alt="image" id="imagem-preview">
                                 <p>{{usuario.nomeUsuario}}</p>
                                 <p>{{usuario.emailUsuario}}</p>
                                 <p>{{usuario.telefoneUsuario}}</p>
-                                <button type="button" class="btn btn-outline-dark branco ">Alterar imagem</button>
-                                <button type="button" class="btn btn-outline-dark branco ">Salvar</button>
+                                <!-- <button type="button" class="btn btn-outline-dark branco mr-2" (click)="carregarImagem($event)">Alterar imagem</button> -->
+                                <label for="file-upload" class="file-upload-container" class="btn btn-outline-dark mb-0 mr-2">
+                                    <input class="d-none" type="file" name="file" id="file-upload" title='' (change)='carregarImagem($event)'>
+                                    Alterar imagem
+                                </label>
+                                <button type="button" class="btn btn-outline-dark branco" (click)="editar()">Salvar</button>
 
                                 <h4 style="color: rgb(207, 120, 134);">Preferências:</h4>
 
@@ -153,7 +197,7 @@
                                         <option value="Outros">Outros</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Tamanho:</h6>
+                                <h6 style="color: black;">Tamanho:</h6>
                                 <div class="row">
                                     <select name="preferencia2" id="preferencia2" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -163,7 +207,7 @@
                                         <option value="g">G</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Idade:</h6>
+                                <h6 style="color: black;">Idade:</h6>
                                 <div class="row">
                                     <select name="preferencia3" id="preferencia3" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -185,7 +229,7 @@
                                         <option value="10anos">10 anos ou +</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Sexo:</h6>
+                                <h6 style="color: black;">Sexo:</h6>
                                 <div class="row">
                                     <select name="preferencia4" id="preferencia4" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -207,8 +251,7 @@
                     <div class="carousel-inner h-100">
                         <div *ngFor="let postagem of postagens">
                             <div class="carousel-item active h-100">
-                                <img class="d-block w-100 rounded" style="object-fit: cover;"
-                                    src="{{postagem.midia}}"
+                                <img class="d-block w-100 rounded" style="object-fit: cover;" src="{{postagem.midia}}"
                                     alt="Foto do animal">
                                 <div class="carousel-caption p-0 d-none d-md-block">
                                     <h5>{{postagem.animal.nomeAnimal}}</h5>

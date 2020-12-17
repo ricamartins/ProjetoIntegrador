@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+    <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
+        <div class="pt-5 pb-2">
+
+            <img class="img-fluid img-thumbnail" width="300px" 
+                [src]="postagem.midia"
+                onerror="event.target.style.display = 'none'" alt="image" id="imagem-preview">
+    
+            <div class="p-2 d-flex justify-content-center" >
+                <label for="file-upload" class="file-upload-container" class="btn btn-outline-dark">
+                    <input class="d-none" type="file" name="file" id="file-upload" title='' (change)="carregarImagem($event)">
+                    Selecione uma imagem
+                </label>
+            </div>
+    
+        </div>
+    
+        <div class="pb-5 pt-2">
+            <h1>Informações do animal</h1>
+            <div class="form-group">
+                <label for="nome">Nome:</label>
+                <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
+                    placeholder="Nome" [(ngModel)]="animal.nomeAnimal" [value]="postagem.animal.nomeAnimal">
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label for="tipo">Tipo:</label>
+                <select name="tipo" id="tipo" [(ngModel)]="animal.tipoAnimal">
+                    <option value="cao">Cão</option>
+                    <option value="gato">Gato</option>
+                    <option value="ave">Ave</option>
+                    <option value="peixe">Peixe</option>
+                    <option value="outro">Outro</option>
+                </select>
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label for="tamanho">Tamanho:</label>
+                <select name="tamanho" id="tamanho" [(ngModel)]="animal.tamanhoAnimal">
+                    <option value="PP">PP</option>
+                    <option value="P">P</option>
+                    <option value="M">M</option>
+                    <option value="G">G</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="idade">Idade:</label>
+                <input type="number" min="0" class="form-control" id="idade" class="w-25 mx-2" [(ngModel)]="animal.idadeAnimal" value="postagem.animal.idadeAnimal">
+                <span>anos</span>
+                <div>
+                    <input type="checkbox" name="idadeConhecida" id="idadeConhecida">
+                    <label for="idadeConhecida" class="ml-2">Não sei a idade exata</label>
+                </div>
+            </div>
+            <div class="form-group d-flex flex-column">
+                <label for="descricao">Descrição:</label>
+                <small>Limite de 100 caracteres</small>
+                <textarea name="descricao" id="descricao" cols="30" rows="5" [(ngModel)]="postagem.descricao">{{postagem.descricao}}</textarea>
+            </div>
+            <div class="form-group">
+                <label for="localizacao">Localização(CEP):</label>
+                <input type="text" class="form-control" id="localizacao" placeholder="ex.: 01122-033" [(ngModel)]="postagem.localizacao" value="{{postagem.localizacao}}">
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary btn-lg" (click)="editar()">Publicar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -20,4 +20,8 @@ export class UsuarioService {
   getUsuarioByEmail(email: string): Observable<Usuario> {
     return this.http.get<Usuario>(`http://localhost:8080/usuario/email/${email}`,this.token);
   }
+
+  editarUsuario(usuario: Usuario): Observable<Usuario> {
+    return this.http.put<Usuario>("http://localhost:8080/usuario", usuario, this.token)
+  }
 }

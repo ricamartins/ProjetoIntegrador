@@ -15,6 +15,7 @@ import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
 import { PublicarComponent } from './publicar/publicar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EditarPostComponent } from './editar-post/editar-post.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     CadastroComponent,
     FaleConoscoComponent,
     HomeComponent,
-    PublicarComponent
+    PublicarComponent,
+    EditarPostComponent
   ],
   imports: [
     BrowserModule,

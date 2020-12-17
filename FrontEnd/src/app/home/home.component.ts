@@ -4,6 +4,7 @@ import { UsuarioService } from '../service/usuario.service';
 import { Router } from '@angular/router';
 import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/Postagem';
+import { MidiaService } from '../service/midia.service';
 
 @Component({
   selector: 'app-home',
@@ -18,8 +19,11 @@ export class HomeComponent implements OnInit {
 
   postagens!: Postagem[]
 
+  imagem!: File
+
   constructor(
     private usuarioService: UsuarioService,
+    private midiaService: MidiaService,
     private router: Router,
     private postagemService: PostagemService) { }
 
@@ -52,7 +56,38 @@ export class HomeComponent implements OnInit {
     })
   }
 
+  apagarPostagem(event: any) {
+    let ids = event.target.nextSibling.innerText.split(',')
+    let idPostagem = parseInt(ids[0])
+    let idAnimal = parseInt(ids[1])
+    this.postagemService.deletePostagem(idPostagem).subscribe(() => {
+      this.postagemService.deleteAnimal(idAnimal).subscribe(() => {
+        alert("Postagem apagada com sucesso")
+      })
+    })
+  }
+
   conteudo() {
     return this.pagina
+  }
+
+  carregarImagem(event: any) {
+    this.imagem = this.midiaService.carregarImagemPreview(event.target.files[0])
+  }
+
+  editar() {
+    
+    if (this.imagem != null) {
+      this.midiaService.uploadPhoto(this.imagem).subscribe((resp) => {
+        
+        this.usuario.fotoUsuario = resp.secure_url
+        
+        this.usuarioService.editarUsuario(this.usuario).subscribe((resp: Usuario) => {
+          this.usuario = resp
+          this.router.navigate(['/home'])
+          alert('Foto alterada com sucesso')  
+        })
+      })
+    }
   }
 }
