@@ -68,3 +68,7 @@
 .cPointer{
     cursor: pointer;
 }
+
+.tamanhoImagem{
+    height:400px;
+}
