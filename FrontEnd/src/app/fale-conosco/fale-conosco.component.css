@@ -1,0 +1,19 @@
+body {
+    background: #ffefdb;
+  }
+
+  .espaçamento {
+    position: relative;
+    left: 22%;
+    max-width: 100%;
+  }
+
+  .btn-primary {
+    background-color: rgb(250, 194, 49);
+    position: relative;
+    left: 35%;
+    width: 200px;
+    height: 50px;
+    
+  }
+
