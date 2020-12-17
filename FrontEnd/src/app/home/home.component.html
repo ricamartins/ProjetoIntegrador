@@ -21,14 +21,16 @@
                     <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel"
                         aria-labelledby="nav-postagens-tab">
 
-                        <button type="button" class="btn btn-dark mt-2" [routerLink]="['/publicar', usuario.id]"> + Add
-                            Pet</button>
-
+                        <div class="d-flex justify-content-center w-100">
+                            <button type="button" class="btn btn-dark mt-2 w-50" [routerLink]="['/publicar', usuario.id]">
+                                Adicionar Pet
+                            </button>
+                        </div>
                         <div class="row my-2">
                             <div class="col-md-12 d-flex flex-wrap">
 
                                 <!-- *ngFor="let item of postagens | orderBy : key : reverse" -->
-                                <div *ngFor="let postagem of postagens">
+                                <div *ngFor="let postagem of postagensUsuario">
                                     <div class="card mx-2 my-2" style="width: 45%;">
                                         <img class="card-img-top cPointer" src="{{postagem.midia}}" alt="Foto do animal" [routerLink]="['/editar-post', postagem.id]">
                                         <div class="card-body d-flex flex-column justify-content-around py-1 px-2">
@@ -114,12 +116,6 @@
                                 </div> -->
                             </div>
                         </div>
-<<<<<<< HEAD
-                        <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add
-                            Pet</button>
-=======
-
->>>>>>> 7e4678f59963bb500ef0498a6c8f922bcd951f72
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -186,65 +182,59 @@
                                 <p>{{usuario.emailUsuario}}</p>
                                 <p>{{usuario.telefoneUsuario}}</p>
                                 <!-- <button type="button" class="btn btn-outline-dark branco mr-2" (click)="carregarImagem($event)">Alterar imagem</button> -->
-                                <label for="file-upload" class="file-upload-container" class="btn btn-outline-dark mb-0 mr-2">
+                                <label for="file-upload" class="file-upload-container" class="btn btn-dark mb-0 mr-2">
                                     <input class="d-none" type="file" name="file" id="file-upload" title='' (change)='carregarImagem($event)'>
                                     Alterar imagem
                                 </label>
-                                <button type="button" class="btn btn-outline-dark branco" (click)="editar()">Salvar</button>
+                                <button type="button" class="btn btn-dark branco" (click)="editar()">Salvar</button>
 
-                                <h4 style="color: rgb(207, 120, 134);">Preferências:</h4>
+                                <div class="d-flex flex-column w-100 mt-2">
+                                    <h4 class="mt-2" style="color: rgb(207, 120, 134);">Preferências:</h4>
 
-                                <h6 style="color: black;">Tipo:</h6>
-                                <div class="row">
-                                    <select name="preferencia1" id="preferencia1" class="mb-1">
-                                        <option value="semPreferencia">Sem preferência</option>
-                                        <option value="Cachorro">Cachorros</option>
-                                        <option value="Gato">Gatos</option>
-                                        <option value="Aves">Aves</option>
-                                        <option value="Peixes">Peixes</option>
-                                        <option value="Outros">Outros</option>
+                                    <h6 style="color: black;">Tipo:</h6>
+                                    <select name="filtroTipo" id="filtroTipo" class="mb-1 w-50">
+                                        <option value="todos">Sem preferência</option>
+                                        <option value="cao">Cachorros</option>
+                                        <option value="gato">Gatos</option>
+                                        <option value="ave">Aves</option>
+                                        <option value="peixe">Peixes</option>
+                                        <option value="outro">Outros</option>
                                     </select>
-                                </div>
-                                <h6 style="color: black;">Tamanho:</h6>
-                                <div class="row">
-                                    <select name="preferencia2" id="preferencia2" class="mb-1">
-                                        <option value="semPreferencia">Sem preferência</option>
-                                        <option value="pp">PP</option>
-                                        <option value="p">P</option>
-                                        <option value="m">M</option>
-                                        <option value="g">G</option>
+
+                                    <h6 style="color: black;">Tamanho:</h6>
+                                    <select name="filtroTamanho" id="filtroTamanho" class="mb-1 w-50">
+                                        <option value="todos">Sem preferência</option>
+                                        <option value="PP">PP</option>
+                                        <option value="P">P</option>
+                                        <option value="M">M</option>
+                                        <option value="G">G</option>
                                     </select>
-                                </div>
-                                <h6 style="color: black;">Idade:</h6>
-                                <div class="row">
-                                    <select name="preferencia3" id="preferencia3" class="mb-1">
-                                        <option value="semPreferencia">Sem preferência</option>
-                                        <option value="1mes">1 mês</option>
-                                        <option value="2meses">2 meses</option>
-                                        <option value="3meses">3 meses</option>
-                                        <option value="4meses">4 meses</option>
-                                        <option value="5meses">5 meses</option>
-                                        <option value="6meses">6 meses</option>
-                                        <option value="1ano">1 ano</option>
-                                        <option value="2anos">2 anos</option>
-                                        <option value="3anos">3 anos</option>
-                                        <option value="4anos">4 anos</option>
-                                        <option value="5anos">5 anos</option>
-                                        <option value="6anos">6 anos</option>
-                                        <option value="7anos">7 anos</option>
-                                        <option value="8anos">8 anos</option>
-                                        <option value="9anos">9 anos</option>
-                                        <option value="10anos">10 anos ou +</option>
+
+                                    <h6 style="color: black;">Idade:</h6>
+                                    <select name="filtroIdade" id="filtroIdade" class="mb-1 w-50">
+                                        <option value="0">Sem preferência</option>
+                                        <option value="1">Até 1 ano</option>
+                                        <option value="2">2 anos</option>
+                                        <option value="3">3 anos</option>
+                                        <option value="4">4 anos</option>
+                                        <option value="5">5 anos</option>
+                                        <option value="6">6 anos</option>
+                                        <option value="7">7 anos</option>
+                                        <option value="8">8 anos</option>
+                                        <option value="9">9 anos</option>
+                                        <option value="10">10 anos ou +</option>
                                     </select>
+                                    
+                                    <button class="btn btn-dark w-75 mt-2" (click)="filtrarPostagens()"> Aplicar preferências</button>
                                 </div>
-                                <h6 style="color: black;">Sexo:</h6>
+                                <!-- <h6 style="color: black;">Sexo:</h6>
                                 <div class="row">
                                     <select name="preferencia4" id="preferencia4" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
                                         <option value="1mes">Masculino</option>
                                         <option value="2meses">Feminino</option>
                                     </select>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <!-- <button type="button" class="btn btn-dark">Editar Dados</button> -->
@@ -258,19 +248,19 @@
                 <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner h-100">
 
-                        <!-- <div *ngFor="let postagem of postagens; let i=index; first as isFirst"></div> -->
+                        <div *ngIf="postagensFiltradas.length != 0">
                         
                             <div class="carousel-item h-100 active" id="carrosselItem">
 
                                 <img class="d-block w-100 rounded tamanhoImagem" style="object-fit: cover;"
-                                    src="{{postagens[0].midia}}" alt="Foto do animal">
+                                    src="{{postagensFiltradas[0].midia}}" alt="Foto do animal">
                                 <div class="carousel-caption p-0 d-none d-md-block"
                                     style="color:black;">
-                                    <h5>{{postagens[0].animal.nomeAnimal}}</h5>
-                                    <p>Tamanho: {{postagens[0].animal.tamanhoAnimal}} | {{postagens[0].descricao}}</p>
+                                    <h5>{{postagensFiltradas[0].animal.nomeAnimal}}</h5>
+                                    <p>Tamanho: {{postagensFiltradas[0].animal.tamanhoAnimal}} | {{postagensFiltradas[0].descricao}}</p>
                                 </div>
                             </div>
-                       
+                        </div>
                      
                         <!-- <div class="carousel-item h-100">
                             <img class="d-block w-100 rounded" style="object-fit: cover;"

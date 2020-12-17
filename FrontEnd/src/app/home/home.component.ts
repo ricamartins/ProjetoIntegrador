@@ -18,7 +18,9 @@ export class HomeComponent implements OnInit {
   emailUsuario!: string
  
   indexPostagens: number = 0
-  postagens!: Postagem[]
+  postagens: Postagem[] = new Array()
+  postagensUsuario: Postagem[] = new Array()
+  postagensFiltradas: Postagem[] = new Array()
 
   imagem!: File
 
@@ -60,10 +62,45 @@ export class HomeComponent implements OnInit {
   }
 
   pegarPostagens() {
-    this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
-      this.postagens = resp
-
+    
+    this.postagemService.getAllPostagens().subscribe((postagens: Postagem[]) => {
+      postagens.forEach(postagem => {
+        if (postagem.usuario.id == this.usuario.id) {
+          this.postagensUsuario.push(postagem)
+        } else {
+          this.postagens.push(postagem)
+        }
+      })
+      this.filtrarPostagens()
     })
+  }
+
+  filtrarPostagens() {
+  
+    let filtroTipo = (<HTMLSelectElement>document.querySelector('#filtroTipo')).value
+    let filtroTamanho  = (<HTMLSelectElement>document.querySelector('#filtroTamanho')).value
+    let filtroIdade  = parseInt((<HTMLSelectElement>document.querySelector('#filtroIdade')).value)
+    
+    this.postagens.forEach(postagem => {
+      
+      let index = this.postagensFiltradas.findIndex(post => post.id == postagem.id)
+
+      if ((filtroTipo == 'todos' || filtroTipo == postagem.animal.tipoAnimal) &&
+          (filtroTamanho == 'todos' || filtroTamanho == postagem.animal.tamanhoAnimal) &&
+          (filtroIdade == 0 || filtroIdade == postagem.animal.idadeAnimal)) {    
+          
+          if (index == -1) {
+            this.postagensFiltradas.push(postagem)
+          }
+
+      } else {
+      
+          if (index > -1) {
+            this.postagensFiltradas.splice(index, 1)
+          }
+      }
+    })
+  
   }
 
   apagarPostagem(event: any) {
