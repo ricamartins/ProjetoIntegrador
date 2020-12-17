@@ -8,6 +8,8 @@ import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
 import { PublicarComponent } from './publicar/publicar.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { FormularioComponent } from './formulario/formulario.component';
+
 
 const routes: Routes = [
   {path: "", component: IndexComponent},
@@ -16,6 +18,8 @@ const routes: Routes = [
   {path: "sobre", component: SobreNosComponent},
   {path: "contato", component: FaleConoscoComponent},
   {path: "home", component: HomeComponent},
+  {path: "fomulario", component: FormularioComponent},
+  {path: "publicar", component: PublicarComponent},
   {path: "publicar/:id", component: PublicarComponent},
   {path: "editar-post/:id", component: EditarPostComponent}
 ];

@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { PublicarComponent } from './publicar/publicar.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { EditarPostComponent } from './editar-post/editar-post.component';
+import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { EditarPostComponent } from './editar-post/editar-post.component';
     FaleConoscoComponent,
     HomeComponent,
     PublicarComponent,
-    EditarPostComponent
+    EditarPostComponent,
+    FormularioComponent
   ],
   imports: [
     BrowserModule,

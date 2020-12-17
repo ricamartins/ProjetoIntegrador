@@ -20,6 +20,10 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel"
                         aria-labelledby="nav-postagens-tab">
+
+                        <button type="button" class="btn btn-dark mt-2" [routerLink]="['/publicar', usuario.id]"> + Add
+                            Pet</button>
+
                         <div class="row my-2">
                             <div class="col-md-12 d-flex flex-wrap">
 
@@ -84,7 +88,7 @@
                                                 <p class="card-text">Tam: P </p>
                                             </div>
                                             <div class="col-md-3 btn">
-                                               
+
                                                 <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
                                             </div>
                                         </div>
@@ -100,18 +104,22 @@
                                                 <p class="card-text">Tam: P </p>
                                             </div>
                                             <div class="col-md-3 btn">
-                                               
+
                                                 <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
                                             </div>
                                         </div>
-                                       
-                                      
+
+
                                     </div>
                                 </div> -->
                             </div>
                         </div>
+<<<<<<< HEAD
                         <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add
                             Pet</button>
+=======
+
+>>>>>>> 7e4678f59963bb500ef0498a6c8f922bcd951f72
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -249,26 +257,22 @@
             <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
                 <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner h-100">
-                        <div *ngFor="let postagem of postagens">
-                            <div class="carousel-item active h-100">
-                                <img class="d-block w-100 rounded" style="object-fit: cover;" src="{{postagem.midia}}"
-                                    alt="Foto do animal">
-                                <div class="carousel-caption p-0 d-none d-md-block">
-                                    <h5>{{postagem.animal.nomeAnimal}}</h5>
-                                    <p>Tamanho: {{postagem.animal.tamanhoAnimal}} | {{postagem.descricao}}</p>
+
+                        <!-- <div *ngFor="let postagem of postagens; let i=index; first as isFirst"></div> -->
+                        
+                            <div class="carousel-item h-100 active" id="carrosselItem">
+
+                                <img class="d-block w-100 rounded tamanhoImagem" style="object-fit: cover;"
+                                    src="{{postagens[0].midia}}" alt="Foto do animal">
+                                <div class="carousel-caption p-0 d-none d-md-block"
+                                    style="color:black;">
+                                    <h5>{{postagens[0].animal.nomeAnimal}}</h5>
+                                    <p>Tamanho: {{postagens[0].animal.tamanhoAnimal}} | {{postagens[0].descricao}}</p>
                                 </div>
                             </div>
-                        </div>
+                       
+                     
                         <!-- <div class="carousel-item h-100">
-                            <img class="d-block w-100 rounded" style="object-fit: cover;"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
-                                alt="Foto do animal">
-                            <div class="carousel-caption p-0 d-none d-md-block">
-                                <h5>Gatinho</h5>
-                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item h-100">
                             <img class="d-block w-100 rounded" style="object-fit: cover;"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
                                 alt="Foto do animal">
