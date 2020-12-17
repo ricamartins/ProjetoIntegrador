@@ -20,6 +20,10 @@
                 <div class="tab-content" id="nav-tabContent">
                     <div class="tab-pane fade show active" id="minhas-postagens" role="tabpanel"
                         aria-labelledby="nav-postagens-tab">
+
+                        <button type="button" class="btn btn-dark mt-2" [routerLink]="['/publicar', usuario.id]"> + Add
+                            Pet</button>
+
                         <div class="row my-2">
                             <div class="col-md-12 d-flex flex-wrap">
 
@@ -33,7 +37,7 @@
                                                 <p class="card-text">Tam: P </p>
                                             </div>
                                             <div class="col-md-3 btn">
-                                               
+
                                                 <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
                                             </div>
                                         </div>
@@ -49,7 +53,7 @@
                                                 <p class="card-text">Tam: P </p>
                                             </div>
                                             <div class="col-md-3 btn">
-                                               
+
                                                 <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
                                             </div>
                                         </div>
@@ -65,17 +69,17 @@
                                                 <p class="card-text">Tam: P </p>
                                             </div>
                                             <div class="col-md-3 btn">
-                                               
+
                                                 <img src="/assets/imgs/lixeira.png" alt="Excluir" class="btnExcluir">
                                             </div>
                                         </div>
-                                       
-                                      
+
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <button type="button" class="btn btn-dark" [routerLink]="['/publicar', usuario.id]"> + Add Pet</button>
+
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
@@ -90,7 +94,8 @@
                                     <div class="col-md-9 pl-1">
                                         <div class="card-body h-100 p-0 d-flex flex-column justify-content-between">
                                             <h5 class="card-title mb-0">Fulaninho</h5>
-                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; " >This
+                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; ">
+                                                This
                                                 is a
                                                 wider card with supporting text below as a
                                                 natural lead-in to additional content. This content is a little bit
@@ -153,7 +158,7 @@
                                         <option value="Outros">Outros</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Tamanho:</h6>
+                                <h6 style="color: black;">Tamanho:</h6>
                                 <div class="row">
                                     <select name="preferencia2" id="preferencia2" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -163,7 +168,7 @@
                                         <option value="g">G</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Idade:</h6>
+                                <h6 style="color: black;">Idade:</h6>
                                 <div class="row">
                                     <select name="preferencia3" id="preferencia3" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -185,7 +190,7 @@
                                         <option value="10anos">10 anos ou +</option>
                                     </select>
                                 </div>
-                                <h6 style="color: black;" >Sexo:</h6>
+                                <h6 style="color: black;">Sexo:</h6>
                                 <div class="row">
                                     <select name="preferencia4" id="preferencia4" class="mb-1">
                                         <option value="semPreferencia">Sem preferência</option>
@@ -205,27 +210,22 @@
             <div id="main" class="col-7 d-flex flex-column align-items-center justify-content-center rounded">
                 <div id="carousel-animais" class="carousel slide w-75 h-75" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner h-100">
-                        <div *ngFor="let postagem of postagens">
-                            <div class="carousel-item active h-100">
-                                <img class="d-block w-100 rounded" style="object-fit: cover;"
-                                    src="{{postagem.midia}}"
-                                    alt="Foto do animal">
-                                <div class="carousel-caption p-0 d-none d-md-block">
-                                    <h5>{{postagem.animal.nomeAnimal}}</h5>
-                                    <p>Tamanho: {{postagem.animal.tamanhoAnimal}} | {{postagem.descricao}}</p>
+
+                        <!-- <div *ngFor="let postagem of postagens; let i=index; first as isFirst"></div> -->
+                        
+                            <div class="carousel-item h-100 active" id="carrosselItem">
+
+                                <img class="d-block w-100 rounded tamanhoImagem" style="object-fit: cover;"
+                                    src="{{postagens[0].midia}}" alt="Foto do animal">
+                                <div class="carousel-caption p-0 d-none d-md-block"
+                                    style="color:black;">
+                                    <h5>{{postagens[0].animal.nomeAnimal}}</h5>
+                                    <p>Tamanho: {{postagens[0].animal.tamanhoAnimal}} | {{postagens[0].descricao}}</p>
                                 </div>
                             </div>
-                        </div>
+                       
+                     
                         <!-- <div class="carousel-item h-100">
-                            <img class="d-block w-100 rounded" style="object-fit: cover;"
-                                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
-                                alt="Foto do animal">
-                            <div class="carousel-caption p-0 d-none d-md-block">
-                                <h5>Gatinho</h5>
-                                <p>Tamanho: M Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item h-100">
                             <img class="d-block w-100 rounded" style="object-fit: cover;"
                                 src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSArtp1kO1IGJCyNVWDZ9-luuHAM5sB7y2TlA&usqp=CAU"
                                 alt="Foto do animal">
