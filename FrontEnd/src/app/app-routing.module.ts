@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: "sobre", component: SobreNosComponent},
   {path: "contato", component: FaleConoscoComponent},
   {path: "home", component: HomeComponent},
-  {path: "fomulario", component: FormularioComponent},
+  {path: "formulario", component: FormularioComponent},
   {path: "publicar", component: PublicarComponent},
   {path: "publicar/:id", component: PublicarComponent},
   {path: "editar-post/:id", component: EditarPostComponent}

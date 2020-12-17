@@ -12,7 +12,7 @@ export class FooterComponent implements OnInit {
 
   faFacebook = faFacebook
   faInstagram = faInstagram
- 
+  
 
   constructor() { }
 
