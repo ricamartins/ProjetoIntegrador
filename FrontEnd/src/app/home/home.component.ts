@@ -15,7 +15,8 @@ export class HomeComponent implements OnInit {
   pagina: string = 'carrossel'
   usuario: Usuario = new Usuario();
   emailUsuario!: string
-
+ 
+  indexPostagens: number = 0
   postagens!: Postagem[]
 
   constructor(
@@ -24,7 +25,6 @@ export class HomeComponent implements OnInit {
     private postagemService: PostagemService) { }
 
   ngOnInit(): void {
-
     let token = localStorage.getItem('token')
     if (!token) this.router.navigate(['/login'])
 
@@ -36,8 +36,17 @@ export class HomeComponent implements OnInit {
   }
 
   promover() {
-    let button: HTMLAnchorElement = document.querySelector("#carousel-next") as HTMLAnchorElement
-    button.click()
+    // let button: HTMLAnchorElement = document.querySelector("#carousel-next") as HTMLAnchorElement
+    // button.click()
+    if(this.indexPostagens < this.postagens.length){
+      this.indexPostagens++
+    } else {
+      this.indexPostagens = 0
+    }
+    let carrosselItem: HTMLDivElement = document.querySelector('#carrosselItem') as HTMLDivElement
+    (<HTMLImageElement>carrosselItem.children[0]).src = this.postagens[this.indexPostagens].midia;
+    (<HTMLHeadingElement>carrosselItem.children[1].children[0]).innerText = this.postagens[this.indexPostagens].animal.nomeAnimal;
+    (<HTMLParagraphElement>carrosselItem.children[1].children[1]).innerText = "TAM: " + this.postagens[this.indexPostagens].animal.tamanhoAnimal +' | '+ this.postagens[this.indexPostagens].descricao;
   }
 
   pegarInformacoesUsuario(email: string) {
@@ -49,6 +58,7 @@ export class HomeComponent implements OnInit {
   pegarPostagens() {
     this.postagemService.getAllPostagens().subscribe((resp: Postagem[]) => {
       this.postagens = resp
+
     })
   }
 
