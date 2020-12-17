@@ -18,7 +18,7 @@ const routes: Routes = [
   {path: "contato", component: FaleConoscoComponent},
   {path: "home", component: HomeComponent},
   {path: "publicar", component: PublicarComponent},
-  {path: "fomulario", component: FormularioComponent}
+  {path: "formulario", component: FormularioComponent}
 ];
 
 @NgModule({

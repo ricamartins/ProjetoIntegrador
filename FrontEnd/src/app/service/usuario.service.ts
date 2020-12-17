@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class UsuarioService {
 
   token ={ 
-    headers : new HttpHeaders().set('Authorization',localStorage.getItem('token')!) 
+    headers : new HttpHeaders().set('Authorization', localStorage.getItem('token')!) 
   }
   constructor(private http: HttpClient) {}
 

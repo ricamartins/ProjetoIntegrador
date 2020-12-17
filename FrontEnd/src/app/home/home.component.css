@@ -55,3 +55,16 @@
     padding: 0;
 }
 
+.btnExcluir{
+    width: 20px;
+    height: 20px;
+
+}
+
+#hover:hover{
+    background-color: lightblue;
+}
+
+.cPointer{
+    cursor: pointer;
+}

@@ -45,7 +45,9 @@ export class CadastroComponent implements OnInit {
           })
         })
       } else {
-
+        //imagem e avaliação padrão
+        this.usuario.avaliacaoUsuario = 5
+        this.usuario.fotoUsuario = 'https://res.cloudinary.com/ricamartins/image/upload/v1608051752/matchpet/default-user-image.png'
         this.auth.cadastrar(this.usuario).subscribe((resp: Usuario) => {
           this.usuario = resp
           this.router.navigate(['/login'])
