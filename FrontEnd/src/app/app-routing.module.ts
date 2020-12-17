@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CadastroComponent } from './cadastro/cadastro.component';
+import { EditarPostComponent } from './editar-post/editar-post.component';
 import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
@@ -19,7 +20,8 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "fomulario", component: FormularioComponent},
   {path: "publicar", component: PublicarComponent},
-  {path: "publicar/:id", component: PublicarComponent}
+  {path: "publicar/:id", component: PublicarComponent},
+  {path: "editar-post/:id", component: EditarPostComponent}
 ];
 
 @NgModule({

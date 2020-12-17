@@ -8,11 +8,11 @@ import { MidiaService } from '../service/midia.service';
 import { PostagemService } from '../service/postagem.service';
 
 @Component({
-  selector: 'app-publicar',
-  templateUrl: './publicar.component.html',
-  styleUrls: ['./publicar.component.css']
+  selector: 'app-editar-post',
+  templateUrl: './editar-post.component.html',
+  styleUrls: ['./editar-post.component.css']
 })
-export class PublicarComponent implements OnInit {
+export class EditarPostComponent implements OnInit {
 
   postagem: Postagem = new Postagem()
   animal: Animal = new Animal()
@@ -28,15 +28,23 @@ export class PublicarComponent implements OnInit {
 
   ngOnInit(): void {
     window.scroll(0, 0)
-    //pegar usuario da postagem
-    this.usuario.id = parseInt(this.route.snapshot.params["id"])
+    this.postagem.id = parseInt(this.route.snapshot.params["id"])
+    this.pegarPostagem(this.postagem.id)
+    console.log(this.postagem)
+  }
+
+  pegarPostagem(id: number) {
+    this.postagemService.getPostagemById(id).subscribe((resp: Postagem) => {
+      console.log(resp)
+      this.postagem = resp
+    })
   }
 
   carregarImagem(event: any) {
     this.imagem = this.midiaService.carregarImagemPreview(event.target.files[0])
   }
 
-  publicar() {
+  editar() {
 
     this.postagem.usuario = this.usuario
 
@@ -52,13 +60,13 @@ export class PublicarComponent implements OnInit {
         this.postagem.midia = resp.secure_url
         
         this.animal.usuario = this.usuario
-        this.postagemService.publicarAnimal(this.animal).subscribe((resp: Animal) => {
+        this.postagemService.editarAnimal(this.animal).subscribe((resp: Animal) => {
           this.postagem.animal = resp
           
-          this.postagemService.publicarPostagem(this.postagem).subscribe((resp: Postagem) => {
+          this.postagemService.editarPostagem(this.postagem).subscribe((resp: Postagem) => {
             this.postagem = resp
             this.router.navigate(['/home'])
-            alert('Postagem feita com sucesso!')
+            alert('Postagem alterada com sucesso!')
           })
         })
       })

@@ -15,6 +15,7 @@ import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
 import { PublicarComponent } from './publicar/publicar.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EditarPostComponent } from './editar-post/editar-post.component';
 import { FormularioComponent } from './formulario/formulario.component';
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FormularioComponent } from './formulario/formulario.component';
     FaleConoscoComponent,
     HomeComponent,
     PublicarComponent,
+    EditarPostComponent,
     FormularioComponent
   ],
   imports: [
