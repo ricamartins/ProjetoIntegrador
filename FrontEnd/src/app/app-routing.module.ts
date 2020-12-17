@@ -5,7 +5,10 @@ import { FaleConoscoComponent } from './fale-conosco/fale-conosco.component';
 import { HomeComponent } from './home/home.component';
 import { IndexComponent } from './index/index.component';
 import { LoginComponent } from './login/login.component';
+import { PublicarComponent } from './publicar/publicar.component';
 import { SobreNosComponent } from './sobre-nos/sobre-nos.component';
+import { FormularioComponent } from './formulario/formulario.component';
+
 
 const routes: Routes = [
   {path: "", component: IndexComponent},
@@ -13,7 +16,10 @@ const routes: Routes = [
   {path: "cadastro", component: CadastroComponent},
   {path: "sobre", component: SobreNosComponent},
   {path: "contato", component: FaleConoscoComponent},
-  {path: "home", component: HomeComponent}
+  {path: "home", component: HomeComponent},
+  {path: "fomulario", component: FormularioComponent},
+  {path: "publicar", component: PublicarComponent},
+  {path: "publicar/:id", component: PublicarComponent}
 ];
 
 @NgModule({

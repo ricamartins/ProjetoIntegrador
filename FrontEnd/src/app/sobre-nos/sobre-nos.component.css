@@ -12,6 +12,16 @@
     background-size: cover;
 }
 
+.espaçamento {
+    padding: 15px;
+    align-items: center;
+    text-align: center;
+    width: 65px;
+    height: 65px;
+}
+.px-15 {
+   padding: 15px;
+}
 
 
 

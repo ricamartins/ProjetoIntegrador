@@ -4,13 +4,12 @@
     <div class="p-5">
 
         <img class="img-fluid img-thumbnail" width="300px" 
-            src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
-            onerror="event.target.style.display = 'none'" alt="image" id="img-preview">
-
+            src="https://res.cloudinary.com/ricamartins/image/upload/v1608051752/matchpet/default-user-image.png"
+            onerror="event.target.style.display = 'none'" alt="image" id="imagem-preview">
 
         <div class="p-2 d-flex justify-content-center" >
             <label for="file-upload" class="file-upload-container" class="btn btn-outline-dark">
-                <input class="d-none" type="file" name="file" id="file-upload" title=''>
+                <input class="d-none" type="file" name="file" id="file-upload" title='' (change)='carregarImagemPreview($event)'>
                 Selecione uma imagem
             </label>
         </div>
@@ -22,7 +21,7 @@
         <div class="form-group">
             <label for="nome">Nome</label>
             <input type="text" class="form-control" id="nome" aria-describedby="emailHelp"
-                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nomeCompleto'>
+                placeholder="Nome e Sobrenome" [(ngModel)]='usuario.nomeUsuario'>
         </div>
         <div class="form-group">
             <label for="email">Email</label>
