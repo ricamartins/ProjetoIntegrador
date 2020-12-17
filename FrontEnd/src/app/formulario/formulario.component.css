@@ -1,0 +1,11 @@
+.body{
+    background-color: rgb(255, 239, 219);
+   
+}
+.btn-primary{
+    background-color: rgb(250,194,49);
+} 
+
+.btn-primary:active{
+   background-color: rgb(247,138,47) !important;
+} 
