@@ -20,4 +20,10 @@ export class MidiaService {
 
     return this.http.post('https://api.cloudinary.com/v1_1/ricamartins/image/upload', data)
   }
+
+  carregarImagemPreview(imagem: File) {
+    let url = URL.createObjectURL(imagem);
+    (<HTMLImageElement>document.querySelector('img#imagem-preview'))!.src = url
+    return imagem
+  }
 }

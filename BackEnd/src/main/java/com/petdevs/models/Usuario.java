@@ -50,8 +50,8 @@ public class Usuario {
 	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
 	private List<Postagem> listaPostagens;
 	
-//	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
-//	private List<Animal> listaAnimais;
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	private List<Animal> listaAnimais;
 	
 	public long getId() {
 		return id;
