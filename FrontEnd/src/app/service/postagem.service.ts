@@ -16,35 +16,35 @@ export class PostagemService {
   }
 
   publicarAnimal(animal: Animal): Observable<Animal> {
-    return this.http.post<Animal>("http://localhost:8080/animal", animal, this.token)
+    return this.http.post<Animal>("https://match-pet.herokuapp.com/animal", animal, this.token)
   }
 
   editarAnimal(animal: Animal): Observable<Animal> {
-    return this.http.put<Animal>("http://localhost:8080/animal", animal, this.token)
+    return this.http.put<Animal>("https://match-pet.herokuapp.com/animal", animal, this.token)
   }
   
   deleteAnimal(id: number) {
-    return this.http.delete(`http://localhost:8080/id/${id}`, this.token)
+    return this.http.delete(`https://match-pet.herokuapp.com/id/${id}`, this.token)
   }
 
   publicarPostagem(postagem: Postagem): Observable<Postagem> {
-    return this.http.post<Postagem>("http://localhost:8080/postagem", postagem, this.token)
+    return this.http.post<Postagem>("https://match-pet.herokuapp.com/postagem", postagem, this.token)
   }
 
   getAllPostagens(): Observable<Postagem[]> {
-    return this.http.get<Postagem[]>("http://localhost:8080/postagem", this.token)
+    return this.http.get<Postagem[]>("https://match-pet.herokuapp.com/postagem", this.token)
   }
 
   getPostagemById(id: number): Observable<Postagem> {
-    return this.http.get<Postagem>(`http://localhost:8080/postagem/id/${id}`, this.token)
+    return this.http.get<Postagem>(`https://match-pet.herokuapp.com/postagem/id/${id}`, this.token)
   }
 
   editarPostagem(postagem: Postagem) {
-    return this.http.put<Postagem>(`http://localhost:8080/postagem`, postagem, this.token)
+    return this.http.put<Postagem>(`https://match-pet.herokuapp.com/postagem`, postagem, this.token)
   }
 
   deletePostagem(id: number) {
-    return this.http.delete(`http://localhost:8080/postagem/id/${id}`, this.token)
+    return this.http.delete(`https://match-pet.herokuapp.com/postagem/id/${id}`, this.token)
   }
 
 }

@@ -14,14 +14,14 @@ export class UsuarioService {
   constructor(private http: HttpClient) {}
 
   getUsuarioById(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:8080/usuario/id/${id}`,this.token);
+    return this.http.get<Usuario>(`https://match-pet.herokuapp.com/usuario/id/${id}`,this.token);
   }
 
   getUsuarioByEmail(email: string): Observable<Usuario> {
-    return this.http.get<Usuario>(`http://localhost:8080/usuario/email/${email}`,this.token);
+    return this.http.get<Usuario>(`https://match-pet.herokuapp.com/usuario/email/${email}`,this.token);
   }
 
   editarUsuario(usuario: Usuario): Observable<Usuario> {
-    return this.http.put<Usuario>("http://localhost:8080/usuario", usuario, this.token)
+    return this.http.put<Usuario>("https://match-pet.herokuapp.com/usuario", usuario, this.token)
   }
 }
