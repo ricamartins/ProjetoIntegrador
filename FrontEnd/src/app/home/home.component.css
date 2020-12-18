@@ -15,6 +15,21 @@
     border: 3px inset #b6b4d0;
 }
 
+.chat {
+    background-color: hsl(244, 28%, 97%);
+    border: 3px inset #b6b4d0;
+}
+
+.mensagem-outro {
+    background-color: #fee5b3;
+    width: fit-content;
+}
+
+.mensagem-minha {
+    background-color: #dbfcff;
+    width: fit-content;
+}
+
 #main {
     background-color: #fedc97;
     box-shadow: 10px 10px 10px 5px #deb664;
@@ -61,7 +76,7 @@
 
 }
 
-#hover:hover{
+#caixa-mensagem:hover{
     background-color: lightblue;
 }
 

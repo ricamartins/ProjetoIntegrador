@@ -13,7 +13,7 @@ import { MidiaService } from '../service/midia.service';
 })
 export class HomeComponent implements OnInit {
 
-  pagina: string = 'carrossel'
+  conteudo: string = 'carrossel'
   usuario: Usuario = new Usuario();
   emailUsuario!: string
  
@@ -114,10 +114,6 @@ export class HomeComponent implements OnInit {
     })
   }
 
-  conteudo() {
-    return this.pagina
-  }
-
   carregarImagem(event: any) {
     this.imagem = this.midiaService.carregarImagemPreview(event.target.files[0])
   }
@@ -136,5 +132,39 @@ export class HomeComponent implements OnInit {
         })
       })
     }
+  }
+
+  mostrarChat() {
+    this.conteudo = 'chat'
+  }
+
+  mostrarCarrossel() {
+    this.conteudo = 'carrossel'
+  }
+
+  criarConversa() {
+    let caixaMensagem = `
+    <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="caixa-mensagem">
+        <div class="row h-100 g-0">
+            <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
+                <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
+                    alt="Foto usuario" width="64" height="64" class="rounded-circle">
+            </div>
+            <div class="col-md-9 pl-1">
+                <div class="card-body h-100 p-0 flex-column d-flex justify-content-between">
+                    <h5 class="card-title mb-0">Larissa</h5>
+                    <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">
+                      Você está livre nesse fim de semana?
+                    </p>
+                    <p class="card-text">
+                    <small class="text-muted">Última mensagem: 3 mins atrás</small>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    `
+    let caixaMensagens = (<HTMLDivElement>document.querySelector('#caixa-de-mensagens'))
+    caixaMensagens.innerHTML = caixaMensagem
   }
 }
