@@ -85,74 +85,7 @@
                     </div>
 
                     <div class="tab-pane fade" id="postagens-temas" role="tabpanel" aria-labelledby="nav-presenca-tab">
-                        <div class="row my-2 d-flex justify-content-center" id="caixa-de-mensagens">
-
-                            <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="caixa-mensagem">
-                                <div class="row h-100 g-0">
-                                    <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
-                                        <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
-                                            alt="Foto usuario" width="64" height="64" class="rounded-circle">
-                                    </div>
-                                    <div class="col-md-9 pl-1">
-                                        <div class="card-body h-100 p-0 flex-column d-flex justify-content-between">
-                                            <h5 class="card-title mb-0">Larissa</h5>
-                                            <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">
-                                              Você está livre nesse fim de semana?
-                                            </p>
-                                            <p class="card-text">
-                                            <small class="text-muted">Última mensagem: 3 mins atrás</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="hover">
-                                <div class="row h-100 g-0">
-                                    <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
-                                        <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
-                                            alt="Foto usuario" width="64" height="64" class="rounded-circle">
-                                    </div>
-                                    <div class="col-md-9 pl-1">
-                                        <div class="card-body h-100 p-0 d-flex flex-column justify-content-between">
-                                            <h5 class="card-title mb-0">Fulaninho</h5>
-                                            <p class="card-text mb-0 fs-1 " style="height: 25px; overflow: hidden; ">
-                                                This
-                                                is a
-                                                wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.
-                                            </p>
-                                            <p class="card-text"><small class="text-muted">Última mensagem: 3 mins
-                                                    atrás</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="caixa-mensagem">
-                                <div class="row h-100 g-0">
-                                    <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
-                                        <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
-                                            alt="Foto usuario" width="64" height="64" class="rounded-circle">
-                                    </div>
-                                    <div class="col-md-9 pl-1">
-                                        <div class="card-body h-100 p-0 flex-column d-flex justify-content-between">
-                                            <h5 class="card-title mb-0">Beltrana</h5>
-                                            <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">This
-                                                is a
-                                                wider card with supporting text below as a
-                                                natural lead-in to additional content. This content is a little bit
-                                                longer.
-                                            </p>
-                                            <p class="card-text"><small class="text-muted">Última mensagem: 3 mins
-                                                    atrás</small>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-
+                        <div class="my-2 d-flex flex-column justify-content-center" id="caixa-de-mensagens">
                         </div>
                     </div>
 
@@ -248,6 +181,10 @@
                                             <p>Tamanho: {{postagensFiltradas[0].animal.tamanhoAnimal}} | {{postagensFiltradas[0].descricao}}</p>
                                         </div>
                                     </div>
+                                    <div class="d-none" id="metadata">
+                                        <p>{{postagensFiltradas[0].usuario.nomeUsuario}}</p>
+                                        <p>{{postagensFiltradas[0].usuario.fotoUsuario}}</p>
+                                    </div>
                                 </div>
                             </div>
                             <a id="carousel-prev" class="carousel-control-prev d-none" href="#carousel-animais" role="button"
@@ -283,9 +220,9 @@
                         <div class="container chat">
                             <div class="d-flex flex-column-reverse" style="width: 45vw; height: 75vh;">
                                 <ul class="d-flex flex-column p-2 pr-4" style="list-style: none;">
-                                    <li class="px-2 py-0 my-1 rounded mensagem-outro">Olá, queria adotar o furão furinho</li>
+                                    <!-- <li class="px-2 py-0 my-1 rounded mensagem-outro">Olá, queria adotar o furão furinho</li>
                                     <li class="px-2 py-0 my-1 rounded align-self-end mensagem-minha">Eba! Vamos marcar um dia para nos encontrar</li>
-                                    <li class="px-2 py-0 my-1 rounded mensagem-outro">Você está livre nesse fim de semana?</li>
+                                    <li class="px-2 py-0 my-1 rounded mensagem-outro">Você está livre nesse fim de semana?</li> -->
                                 </ul>
                             </div>
                             <div class="row d-flex align-items-center mb-2">

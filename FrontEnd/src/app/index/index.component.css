@@ -26,9 +26,10 @@
 
 .btnestilo{
 
+    position: relative;
     width: 250px;
     height: 250px;
-    bottom: 100px;
+    bottom: 85px;
 
 }
 

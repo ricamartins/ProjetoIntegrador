@@ -44,15 +44,23 @@ export class HomeComponent implements OnInit {
   promover() {
     // let button: HTMLAnchorElement = document.querySelector("#carousel-next") as HTMLAnchorElement
     // button.click()
-    if(this.indexPostagens < this.postagens.length){
-      this.indexPostagens++
-    } else {
+    this.indexPostagens++
+    if(this.indexPostagens >= this.postagens.length){
       this.indexPostagens = 0
     }
+    // else {
+    //   this.indexPostagens = 0
+    // }
+
+
     let carrosselItem: HTMLDivElement = document.querySelector('#carrosselItem') as HTMLDivElement
-    (<HTMLImageElement>carrosselItem.children[0]).src = this.postagens[this.indexPostagens].midia;
-    (<HTMLHeadingElement>carrosselItem.children[1].children[0]).innerText = this.postagens[this.indexPostagens].animal.nomeAnimal;
-    (<HTMLParagraphElement>carrosselItem.children[1].children[1]).innerText = "TAM: " + this.postagens[this.indexPostagens].animal.tamanhoAnimal +' | '+ this.postagens[this.indexPostagens].descricao;
+    (<HTMLImageElement>carrosselItem.children[0]).src = this.postagensFiltradas[this.indexPostagens].midia;
+    (<HTMLHeadingElement>carrosselItem.children[1].children[0]).innerText = this.postagensFiltradas[this.indexPostagens].animal.nomeAnimal;
+    (<HTMLParagraphElement>carrosselItem.children[1].children[1]).innerText = "TAM: " + this.postagensFiltradas[this.indexPostagens].animal.tamanhoAnimal +' | '+ this.postagensFiltradas[this.indexPostagens].descricao;
+    
+    let metadata = (<HTMLDivElement>document.querySelector('#metadata'))
+    metadata.children[0].innerHTML = this.postagensFiltradas[this.indexPostagens].usuario.nomeUsuario
+    metadata.children[1].innerHTML = this.postagensFiltradas[this.indexPostagens].usuario.fotoUsuario
   }
 
   pegarInformacoesUsuario(email: string) {
@@ -143,28 +151,82 @@ export class HomeComponent implements OnInit {
   }
 
   criarConversa() {
-    let caixaMensagem = `
-    <div class="card cPointer" style="max-width: 540px; height: 12.5vh;" id="caixa-mensagem">
-        <div class="row h-100 g-0">
-            <div class="col-md-3 pr-1 d-flex justify-content-center align-items-center">
-                <img src="https://res.cloudinary.com/ricamartins/image/upload/v1607472904/default-user-image_bh0uz4.png"
-                    alt="Foto usuario" width="64" height="64" class="rounded-circle">
-            </div>
-            <div class="col-md-9 pl-1">
-                <div class="card-body h-100 p-0 flex-column d-flex justify-content-between">
-                    <h5 class="card-title mb-0">Larissa</h5>
-                    <p class="card-text mb-0 fs-1" style="height: 25px; overflow: hidden;">
-                      Você está livre nesse fim de semana?
-                    </p>
-                    <p class="card-text">
-                    <small class="text-muted">Última mensagem: 3 mins atrás</small>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-    `
-    let caixaMensagens = (<HTMLDivElement>document.querySelector('#caixa-de-mensagens'))
-    caixaMensagens.innerHTML = caixaMensagem
+
+    let messageTab = (<HTMLDivElement>document.querySelector('#caixa-de-mensagens'))
+
+    let metadata = (<HTMLDivElement>document.querySelector('#metadata'))
+    let name = metadata.children[0].innerHTML
+    let photo = metadata.children[1].innerHTML
+
+    let card = document.createElement('div')
+    card.classList.add('card')
+    card.classList.add('cPointer')
+    card.classList.add('caixa-mensagem')
+    card.style.maxWidth = '540px'
+    card.style.height = '12.5vh'
+
+    let row = document.createElement('div')
+    row.classList.add('row')
+    row.classList.add('h-100')
+    row.classList.add('g-0')
+    card.appendChild(row)
+
+    let imageContainer = document.createElement('div')
+    imageContainer.classList.add('col-md-3')
+    imageContainer.classList.add('pr-1')
+    imageContainer.classList.add('d-flex')
+    imageContainer.classList.add('justify-content-center')
+    imageContainer.classList.add('align-items-center')
+    row.appendChild(imageContainer)
+
+    let image = document.createElement('img')
+    image.classList.add('rounded-circle')
+    image.width = 64
+    image.height = 64
+    image.alt = 'Foto usuário'
+    image.src = photo
+    imageContainer.appendChild(image)
+
+    let bodyContainer = document.createElement('div')
+    bodyContainer.classList.add('col-md-9')
+    bodyContainer.classList.add('pl-1')
+    row.appendChild(bodyContainer)
+
+    let cardBody = document.createElement('div')
+    cardBody.classList.add('card-body')
+    cardBody.classList.add('h-100')
+    cardBody.classList.add('p-0')
+    cardBody.classList.add('d-flex')
+    cardBody.classList.add('flex-column')
+    cardBody.classList.add('justify-content-between')
+    bodyContainer.appendChild(cardBody)
+
+    let cardTitle = document.createElement('h5')
+    cardTitle.classList.add('card-title')
+    cardTitle.classList.add('mb-0')
+    cardTitle.innerHTML = name
+    cardBody.appendChild(cardTitle)
+
+    let messagePreview = document.createElement('p')
+    messagePreview.classList.add('card-text')
+    messagePreview.classList.add('mb-0')
+    messagePreview.classList.add('fs-1')
+    messagePreview.style.height = '25px'
+    messagePreview.style.overflow = 'hidden'
+    messagePreview.innerHTML = 'Inicie uma conversa com ' + name
+    cardBody.appendChild(messagePreview)
+
+    let cardFooter = document.createElement('p')
+    cardFooter.classList.add('card-text')
+    cardBody.appendChild(cardFooter)
+
+    let lastMessage = document.createElement('small')
+    lastMessage.classList.add('text-muted')
+    lastMessage.innerHTML = 'Esta conversa não possui mensagens'
+    cardFooter.appendChild(lastMessage)
+
+    messageTab.appendChild(card)
+
+    this.promover()
   }
 }
